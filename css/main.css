@@ -115,7 +115,7 @@ header a {
 .jumbotron {
 	display: flex;
 	align-items: center;
-	background: url("vince-vaughn-cover-2.jpg") no-repeat center center;
+	background: url("../images/Vince-Vaughn-Cover-2.jpg") no-repeat center center;
 	background-size: cover;
 	height: 600px;
 	text-align: center;
