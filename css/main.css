@@ -126,6 +126,10 @@ img {
 		font-size: 72px;
 		line-height: 76px;
 	}
+	.author {
+		float: right !important;
+	}
+
 }
 
 .welcome-text {
