@@ -83,9 +83,10 @@ body {
 
 	color: #fff;
 	font-family: 'Source Serif Pro', serif;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 400;
 	text-decoration: underline;
+	text-shadow: #222 0.01em 0.01em 0.01em;
 }
 
 #about:hover {
