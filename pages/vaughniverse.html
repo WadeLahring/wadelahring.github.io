@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title="Center of the Vaughn-iverse">
+    <meta charset="utf-8"/>
+    <meta property="og:title" content="Center of the Vaughn-iverse"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="vince-vaughn-icon.png"/>
+    <meta property="og:description" content="We must travel, across the Vaughn-iverse"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="script/jquery-3.1.1.slim.min.js"></script>
+    <link href="css/main.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400|Source+Serif+Pro" rel="stylesheet">
+    <link rel="shortcut icon" href="images/unicorn.png"/>
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      var idleInterval = setInterval(makeVaughn, 1000);
+
+      function makeVaughn() {
+
+        var posx = (Math.random() * ($('body').width())).toFixed();
+        var posy = (Math.random() * ($('body').height())).toFixed();
+
+        var dif = 180;
+
+        if ((posx + dif) > ($('body').width())) {
+          posx -= dif;
+        }
+
+        if (posx < dif) {
+          posx += dif;
+        }
+
+        if ((posy + dif) > ($('body').height())) {
+          posy -= dif;
+        }
+
+        if (posy < dif) {
+          posy += dif;
+        }
+
+
+        $newImg = $("<img class='vince' src='images/vincevaughn-" + (Math.floor(Math.random() * 4) + 1) + ".png' z-index='3001;' />").css({
+          'left': posx + 'px',
+          'top': posy + 'px'
+        });
+
+        $newImg.appendTo('body');
+      }
+    });
+
+    function changeScreen(fromID) {
+      if (fromID === "home") {
+        $("#home_layout").hide();
+        $("#about_screen_container").css('display', 'table');
+      } else {
+        $("#about_screen_container").hide();
+        $("#home_layout").css('display', 'table');
+      }
+    }
+
+    </script>
+  </head>
+
+  <body>
+    <div id="home_layout">
+      <div><img id="vince_icon" z-index="2000" src="images/vince-center.png" alt=""/></div>
+      <div id="text_over">
+        <div id="vince_text" z-index:"5000">across the vaughn-iverse</div>
+        <a id="about" href="javascript:void(0)" onclick="changeScreen('home'); return false;">made by wade</a>
+      </div>
+    </div>
+
+    <div id="about_screen_container">
+      <div id="about_screen">made by wade as a practice project based on the concept of <a id="credit_link" href="http://theonemillioncommandments.com/" destination="_blank">theonemillioncommandments.com</a><br><br></div>
+      <a id="about" href="javascript:void(0)" onclick="changeScreen('about'); return false;">home</a>
+    </div>
+  </body>
+
+</html>
