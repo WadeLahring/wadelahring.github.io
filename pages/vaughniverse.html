@@ -17,37 +17,41 @@
     $(document).ready(function() {
 
       var idleInterval = setInterval(makeVaughn, 1000);
+      var vaughnOn = true;
 
       function makeVaughn() {
 
-        var posx = (Math.random() * ($(document).width())).toFixed();
-        var posy = (Math.random() * ($(document).height())).toFixed();
+        if (vaughnOn == true) {
 
-        var dif = 180;
+          var posx = (Math.random() * ($(document).width())).toFixed();
+          var posy = (Math.random() * ($(document).height())).toFixed();
 
-        if ((posx + dif) > ($(document).width())) {
-          posx -= dif;
+          var dif = 180;
+
+          if ((posx + dif) > ($(document).width())) {
+            posx -= dif;
+          }
+
+          if (posx < dif) {
+            posx += dif;
+          }
+
+          if ((posy + dif) > ($(document).height())) {
+            posy -= dif;
+          }
+
+          if (posy < dif) {
+            posy += dif;
+          }
+
+
+          $newImg = $("<img class='vince' src='images/vincevaughn-" + (Math.floor(Math.random() * 4) + 1) + ".png' z-index='3001;' />").css({
+            'left': posx + 'px',
+            'top': posy + 'px'
+          });
+
+          $newImg.appendTo('body');
         }
-
-        if (posx < dif) {
-          posx += dif;
-        }
-
-        if ((posy + dif) > ($(document).height())) {
-          posy -= dif;
-        }
-
-        if (posy < dif) {
-          posy += dif;
-        }
-
-
-        $newImg = $("<img class='vince' src='images/vincevaughn-" + (Math.floor(Math.random() * 4) + 1) + ".png' z-index='3001;' />").css({
-          'left': posx + 'px',
-          'top': posy + 'px'
-        });
-
-        $newImg.appendTo('body');
       }
     });
 
@@ -57,9 +61,11 @@
       if (fromID === "home") {
         $("#home_layout").hide();
         $("#about_screen_container").css('display', 'table');
+        vaughnOn = false;
       } else {
         $("#about_screen_container").hide();
         $("#home_layout").css('display', 'table');
+        vaughnOn = true;
       }
     }
 
