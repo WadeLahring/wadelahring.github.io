@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Center of the Vaughn-iverse"</title>
+    <title>Center of the Vaughn-iverse</title>
     <meta charset="utf-8"/>
     <meta property="og:title" content="Center of the Vaughn-iverse"/>
     <meta property="og:type" content="website"/>
@@ -20,12 +20,12 @@
 
       function makeVaughn() {
 
-        var posx = (Math.random() * ($('body').width())).toFixed();
-        var posy = (Math.random() * ($('body').height())).toFixed();
+        var posx = (Math.random() * ($(document).width())).toFixed();
+        var posy = (Math.random() * ($(document).height())).toFixed();
 
         var dif = 180;
 
-        if ((posx + dif) > ($('body').width())) {
+        if ((posx + dif) > ($(document).width())) {
           posx -= dif;
         }
 
@@ -33,7 +33,7 @@
           posx += dif;
         }
 
-        if ((posy + dif) > ($('body').height())) {
+        if ((posy + dif) > ($(document).height())) {
           posy -= dif;
         }
 
@@ -52,6 +52,8 @@
     });
 
     function changeScreen(fromID) {
+      $('.vince').remove();
+
       if (fromID === "home") {
         $("#home_layout").hide();
         $("#about_screen_container").css('display', 'table');
